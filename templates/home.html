@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WOZ prediction</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        background-color: antiquewhite;
+      }
+      .div2 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        padding: 30px;
+        transform: translate(-50%, -50%);
+        border: 2px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="div2">
+      <ul>
+      <form action="http://127.0.0.1:5000/api/get_woz_value"  method="POST">
+        <p>
+          How many single people live in the area?
+          <input type="number" name="single_count" min="0" required='True'/>
+        </p>
+        <p>
+          How many married couples with no kids live in the area?
+          <input type="number" name="married_no_kids" min="0" required="True">
+
+        </p>
+        <p>
+          How many unmarried couples with no kids live in the area?
+          <input type="number" name="unmarried_no_kids" min="0" required="True">
+
+        </p>
+        <p>
+          How many married parents live in the area?
+          <input type="number" name="married_with_kids" min="0" required="True">
+
+        </p>
+        <p>
+          How many unmarried couples with kids live in the area?
+          <input type="number" name="unmarried_with_kids" min="0" required="True">
+        </p>
+        <p>
+          How many single parents live in the area?
+          <input type="number" name="single_parent" min="0" required="True">
+
+        </p>
+        <p>
+          What is the number of households that do not fall into these categories?
+          <input type="number" name="other" min="0" required="True">
+
+        </p>
+        <p><input type="submit" value="Ok">
+        </p>
+      </form>
+    </ul>
+      <br />
+      <p>{{result}}</p>
+
+    </div>
+  </body>
+</html>
